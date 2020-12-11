@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Observers\TaskObserver;
+use App\Task;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -28,7 +30,8 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        //
+        
+        //we can also use simple event but i prefer this way for handling caching as too 
+        Task::observe(TaskObserver::class);
     }
 }

@@ -15,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::post('/tasks', StoreTask::class);
+Route::get('/tasks/{task}', showTask::class);
+Route::get('/tasks', indexTask::class);
+
 Route::middleware('auth:api')->group(function () {
     Route::get('logout','AuthController@logout');
     
     Route::get('user', function (Request $request) {
         return $request->user();
-    });
-    
-    Route::resource('tasks', 'TaskController');
+    });    
+
+    Route::post('/tasks', StoreTask::class);
+    Route::get('/tasks/{task}', showTask::class);
+    Route::get('/tasks', indexTask::class);
+
 });
 
 Route::post('register','AuthController@register');

@@ -8,9 +8,7 @@ class Task extends Model
 {
     protected $guarded=[];
     protected $hidden = ['pivot'];
-    // public function user(){
-    //     return  $this->belongsTo('App\User');
-    // }
+
 
     public function categories(){
         return  $this->belongsToMany('App\Category', 'category_task');

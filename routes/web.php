@@ -27,19 +27,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('test',function(){
-     $details=[
-        "mailto"=>"alaa.eddin.ksibati.97@gmail.com",
-        "subject"=>"task expired",
-        "body"=>"task"
-    ];
+// Route::get('test',function(){
+//      $details=[
+//         "mailto"=>"alaa.eddin.ksibati.97@gmail.com",
+//         "subject"=>"task expired",
+//         "body"=>"task"
+//     ];
     
-    // dispatch(new ProcessMail($details)); //work
+//    //  dispatch(new ProcessMail($details)); //work
+//     \Mail::to($details['mailto'])->queue((new taskExpiredMail($details)));
+//     return true;
 
-    \Mail::to($details['mailto'])->queue((new taskExpiredMail($details)));
-    return true;
-
-
-});
+// });
 
 

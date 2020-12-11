@@ -39,7 +39,8 @@ class ProcessMail implements ShouldQueue
         $this->task->end_flag=1;
         $this->task->save();
         
-        $email = new taskExpiredMail($this->details);
+        
+        $email = new taskExpiredMail($this->details,$this->task);
 
         Mail::to($this->details['mailto'])->send($email);
     }
